@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>spring_architecture</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Найти продукт по ID </h1>
+
+        <form method="GET" th:action="@{/products/find/{id}}">
+            <div class="mb-3">
+                <label for="idField" class="form-label">ID</label>
+                <input type="number" class="form-control" id="idField" name="id">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </form>
+
+        <a th:href="@{/}">На главную страницу</a>
+    </div>
+</body>
+</html>

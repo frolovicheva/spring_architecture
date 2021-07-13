@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>spring_architecture</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Каталог</h1>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Категория</th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${products}">
+                <td th:text="${p.id}"/>
+                <td th:text="${p.category.title}"/>
+                <td th:text="${p.title}"/>
+                <td th:text="${p.price}"/>
+                <td>
+                    <a class="btn btn-danger" th:href="@{'/products/delete/' + ${p.id}}">Удалить запись</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/products/find_product_form}" class="btn btn-primary">Найти продукт по ID</a>
+    </div>
+</body>
+</html>
